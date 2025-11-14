@@ -17,7 +17,7 @@ jobs:
       - name: e.py 
         run: python e.py
 
-jobs-transfrom:
+  jobs-transfrom:
     runs-on: ubuntu-latest
     needs:   jobs-extract
     steps:
@@ -27,7 +27,7 @@ jobs-transfrom:
       - name: t.py 
         run: python t.py
 
-jobs-load:
+  jobs-load:
     runs-on: ubuntu-latest
     needs:   jobs-transfrom
     steps:
