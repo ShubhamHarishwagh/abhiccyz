@@ -1,1 +1,38 @@
+name: githubaction
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  jobs-extract:
+    runs-on: ubuntu-latest
+    
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: e.py 
+        run: python e.py
+
+jobs-transfrom:
+    runs-on: ubuntu-latest
+    needs:   jobs-extract
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: t.py 
+        run: python t.py
+
+jobs-load:
+    runs-on: ubuntu-latest
+    needs:   jobs-transfrom
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: l.py 
+        run: python l.py        
